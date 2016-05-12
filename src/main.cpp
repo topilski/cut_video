@@ -19,6 +19,10 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
+extern "C" {
+#include <libavformat/avformat.h>
+}
+
 #include "gui/main_window.h"
 
 namespace {
@@ -26,6 +30,8 @@ namespace {
 }
 
 int main(int argc, char* argv[]) {
+  av_register_all();
+
   QApplication app(argc, argv);
   app.setOrganizationName(PROJECT_COMPANYNAME);
   app.setApplicationName(PROJECT_NAME);

@@ -143,8 +143,6 @@ ENDIF(OS_MACOSX)
 
 INTEGRATE_QT(${QT_COMPONENTS_TO_USE})
 
-#use OpenSSL
-FIND_PACKAGE(OpenSSL REQUIRED)
 ##########################################################
 
 IF(OS_ANDROID)
