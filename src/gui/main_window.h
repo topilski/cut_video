@@ -22,10 +22,8 @@
 
 #include <QMainWindow>
 
-class QAction;
-class QMenu;
-class QPlainTextEdit;
-class QSessionManager;
+class QPushButton;
+class QLineEdit;
 
 class MainWindow :
   public QMainWindow {
@@ -33,4 +31,11 @@ class MainWindow :
 
  public:
   MainWindow();
+
+ private Q_SLOTS:
+  void openVideoFile();
+
+ private:
+  QLineEdit* filePath_;
+  QPushButton* selectFileButton_;
 };

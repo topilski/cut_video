@@ -26,7 +26,7 @@ extern "C" {
 #include "gui/main_window.h"
 
 namespace {
-  const QSize preferedSize(1024, 768);
+  const QSize preferedSize(640, 480);
 }
 
 int main(int argc, char* argv[]) {

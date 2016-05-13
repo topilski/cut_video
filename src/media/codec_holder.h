@@ -4,7 +4,6 @@
 
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
-#include <libswscale/swscale.h>
 
 typedef struct decoder_t {
   AVCodec* codec;
@@ -19,11 +18,11 @@ decoder_t* alloc_video_decoder(enum AVCodecID codec_id, int width,
 decoder_t* alloc_audio_decoder(enum AVCodecID codec_id, int sample_rate,
                                int channels, int audio_bitrate);  // avcodec_find_decoder
 
-decoder_t* alloc_decoder_by_ctx(const AVCodecContext *ctx);  // avcodec_find_decoder
-void free_decoder(decoder_t *holder);
+decoder_t* alloc_decoder_by_ctx(const AVCodecContext* ctx);  // avcodec_find_decoder
+void free_decoder(decoder_t* holder);
 
-int decoder_decode_video(decoder_t *holder, AVFrame *picture, const AVPacket *avpkt);
-int decoder_decode_audio(decoder_t *holder, AVFrame *frame, const AVPacket *avpkt);
+int decoder_decode_video(decoder_t* holder, AVFrame* picture, const AVPacket* avpkt);
+int decoder_decode_audio(decoder_t* holder, AVFrame* frame, const AVPacket* avpkt);
 
 typedef struct encoder_t {
   AVCodec* codec;
@@ -31,13 +30,13 @@ typedef struct encoder_t {
 } encoder_t;
 
 encoder_t* alloc_video_encoder_by_codecid(enum AVCodecID codec_id, int width, int height,
-                                          int fps, AVDictionary * opt);
+                                          int fps, AVDictionary* opt);
 encoder_t* alloc_audio_encoder_by_codecid(enum AVCodecID codec_id, int sample_rate,
                                           int channels, int audio_bitrate,
-                                          AVDictionary *opt);  // avcodec_find_encoder
-void free_encoder(encoder_t *holder);
+                                          AVDictionary* opt);  // avcodec_find_encoder
+void free_encoder(encoder_t* holder);
 
-int encoder_encode_audio(encoder_t *holder, AVPacket* pkt, const AVFrame *frame, int *got_packet);
+int encoder_encode_audio(encoder_t* holder, AVPacket* pkt, const AVFrame* frame, int* got_packet);
 
 
 typedef struct output_stream_t {
@@ -50,8 +49,8 @@ typedef struct output_stream_t {
 
 AVOutputFormat* find_avoutformat_by_codecids(enum AVCodecID vcodec_id, enum AVCodecID acodec_id);
 
-output_stream_t* alloc_output_stream(AVOutputFormat *oformat,
-                                     const char *file_path, const char *format_name);
+output_stream_t* alloc_output_stream(AVOutputFormat* oformat,
+                                     const char* file_path, const char* format_name);
 output_stream_t* alloc_output_stream_without_codec(const char *file_path);
 void free_output_stream(output_stream_t *ostream);
 
