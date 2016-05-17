@@ -12,7 +12,7 @@
 #define SAVE_FRAME_ID 2
 #define SAVE_FRAME_POLICY SAVE_FRAME_ID
 
-media_stream_t* alloc_video_stream(const char * path_to_save, media_stream_params_t* params,
+media_stream_t* alloc_video_stream(const char* path_to_save, media_stream_params_t* params,
                                    int need_encode) {
   if (!path_to_save || !params) {
     return NULL;

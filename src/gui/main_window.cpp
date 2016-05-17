@@ -34,7 +34,7 @@ const int height = 480;
 MainWindow::MainWindow()
   : QMainWindow() {
   setWindowTitle(PROJECT_NAME_TITLE " " PROJECT_VERSION);
-  QWidget *widget = new QWidget;
+  QWidget* widget = new QWidget;
   setCentralWidget(widget);
 
   QHBoxLayout* mainl = new QHBoxLayout;
